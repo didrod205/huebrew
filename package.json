@@ -1,0 +1,63 @@
+{
+  "name": "huebrew",
+  "version": "0.1.0",
+  "description": "Brew a color palette & ready-to-use theme tokens from any image — dominant colors via median-cut, perceptual OKLab ramps, and CSS/SCSS/Tailwind/JSON/SVG export. Zero dependencies, 100% local.",
+  "type": "module",
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "sideEffects": false,
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "build": "tsup",
+    "build:web": "vite build",
+    "dev": "vite",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "typecheck": "tsc --noEmit",
+    "lint": "tsc --noEmit",
+    "prepublishOnly": "npm run build"
+  },
+  "keywords": [
+    "color-palette",
+    "palette-extractor",
+    "image-colors",
+    "dominant-color",
+    "color-thief",
+    "median-cut",
+    "oklch",
+    "tailwind-colors",
+    "design-tokens",
+    "color-scheme",
+    "theme-generator",
+    "zero-dependency"
+  ],
+  "author": "didrod205 (https://github.com/didrod205)",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/didrod205/huebrew.git"
+  },
+  "bugs": {
+    "url": "https://github.com/didrod205/huebrew/issues"
+  },
+  "homepage": "https://didrod205.github.io/huebrew/",
+  "devDependencies": {
+    "tsup": "^8.3.5",
+    "typescript": "^5.7.2",
+    "vite": "^6.0.0",
+    "vitest": "^2.1.8"
+  }
+}

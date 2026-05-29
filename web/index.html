@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>huebrew — brew a color palette & theme from any image</title>
+    <meta
+      name="description"
+      content="Drop an image to extract its color palette and generate ready-to-use theme tokens — CSS variables, Tailwind colors, SCSS, JSON, SVG. Perceptual OKLab ramps. 100% local, nothing uploaded."
+    />
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <header class="hero">
+      <h1>🎨 huebrew</h1>
+      <p class="tagline">
+        Drop an image → get a <strong>palette</strong> and a ready-to-paste
+        <strong>theme</strong> (CSS, Tailwind, SCSS, JSON, SVG).
+      </p>
+      <p class="privacy">🔒 100% local — your image never leaves your browser.</p>
+    </header>
+
+    <main>
+      <section id="drop" class="drop">
+        <input type="file" id="file" accept="image/*" hidden />
+        <p>
+          <button id="pick" type="button">Choose an image</button>
+          <button id="sample" type="button" class="ghost">Try a sample</button>
+        </p>
+        <p class="hint">…or drag &amp; drop, or paste (⌘/Ctrl+V) an image anywhere.</p>
+        <canvas id="canvas" hidden></canvas>
+        <img id="preview" alt="" hidden />
+      </section>
+
+      <section class="controls">
+        <label>Colors
+          <select id="count">
+            <option>4</option>
+            <option selected>6</option>
+            <option>8</option>
+            <option>10</option>
+          </select>
+        </label>
+      </section>
+
+      <section id="swatches" class="swatches" aria-live="polite"></section>
+
+      <section class="exports" id="exports" hidden>
+        <div class="tabs" id="tabs"></div>
+        <div class="export-head">
+          <span id="export-name"></span>
+          <button id="copy-export" type="button">Copy</button>
+        </div>
+        <pre id="export-out"></pre>
+      </section>
+    </main>
+
+    <footer>
+      <a href="https://github.com/didrod205/huebrew">GitHub</a> ·
+      <a href="https://www.npmjs.com/package/huebrew">npm</a> ·
+      <span>MIT</span> · <span>Zero dependencies</span>
+    </footer>
+
+    <script type="module" src="./main.ts"></script>
+  </body>
+</html>
