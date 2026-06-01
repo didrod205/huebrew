@@ -1,7 +1,7 @@
 {
   "name": "huebrew",
-  "version": "0.1.0",
-  "description": "Brew a color palette & ready-to-use theme tokens from any image — dominant colors via median-cut, perceptual OKLab ramps, and CSS/SCSS/Tailwind/JSON/SVG export. Zero dependencies, 100% local.",
+  "version": "0.2.0",
+  "description": "Brew a color palette & ready-to-use theme tokens from any image — dominant colors via median-cut, perceptual OKLab ramps, and CSS/SCSS/Tailwind/JSON/SVG export. CLI + library + web app. Zero dependencies, 100% local.",
   "type": "module",
   "main": "./dist/index.js",
   "module": "./dist/index.js",
@@ -12,6 +12,9 @@
       "import": "./dist/index.js",
       "require": "./dist/index.cjs"
     }
+  },
+  "bin": {
+    "huebrew": "./dist/cli.js"
   },
   "files": [
     "dist"
@@ -42,6 +45,7 @@
     "design-tokens",
     "color-scheme",
     "theme-generator",
+    "cli",
     "zero-dependency"
   ],
   "author": "didrod205 (https://github.com/didrod205)",
@@ -55,6 +59,7 @@
   },
   "homepage": "https://didrod205.github.io/huebrew/",
   "devDependencies": {
+    "@types/node": "^22.19.19",
     "tsup": "^8.3.5",
     "typescript": "^5.7.2",
     "vite": "^6.0.0",

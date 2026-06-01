@@ -48,13 +48,48 @@ screenshot), **marketers** (brand colors from a logo), **content creators**
 
 **No install —** just open the **[web studio](https://didrod205.github.io/huebrew/)**.
 
-For the library:
+**Command line** (brew a palette from a PNG, right in your terminal):
+
+```bash
+npx huebrew logo.png --css        # CSS variables, straight to stdout
+npx huebrew hero.png --tailwind   # a Tailwind colors config with OKLab ramps
+```
+
+**Library:**
 
 ```bash
 npm install huebrew
 ```
 
-Zero dependencies. Ships ESM + CJS + TypeScript types. Works in the browser, Node, Deno and Bun.
+Zero runtime dependencies. Ships ESM + CJS + TypeScript types. Works in the browser, Node, Deno and Bun.
+
+## CLI
+
+```bash
+huebrew <image.png> [options]
+```
+
+```text
+$ huebrew sunset.png -n 5
+  ████  #1B3A5F  hsl(210, 56%, 24%)
+  ████  #E8743B  hsl(18, 80%, 57%)
+  ████  #F4C95D  hsl(42, 87%, 66%)
+  ████  #7A1E2B  hsl(351, 61%, 30%)
+  ████  #C9D6DF  hsl(205, 24%, 83%)
+```
+
+| Option | Description |
+| ------ | ----------- |
+| `-n, --colors <n>` | Number of colors (default 6) |
+| `--hex` / `--css` / `--scss` / `--json` | Output in that format |
+| `--tailwind` | Tailwind colors config with **OKLab 50–950 ramps** |
+| `--svg [file]` | An SVG swatch strip (stdout or a file) |
+| `--names a,b,c` | Names for `--tailwind` colors |
+| `-o, --out <file>` | Write to a file instead of stdout |
+
+The CLI decodes **PNG** natively using Node's built-in `zlib` — so it stays
+**zero-dependency**. For JPEG/WebP, decode to RGBA and use the library API
+(below). Nothing is uploaded; all processing is local.
 
 ## Usage
 
